@@ -22,6 +22,7 @@ public class AdministradorControlador {
 	@Autowired
 	private RepositorioAdministrador repositorio;
 	
+	
 	@GetMapping("/guardar")
 	public List<Administrador> guardarAdministrador(){
 		Administrador e = new Administrador("Carlos", "1234");
