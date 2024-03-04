@@ -42,7 +42,7 @@ public class Usuario {
 		this.apellidos = apellidos;
 		this.cedula = cedula;
 		this.telefono = telefono;
-		FechaNacimiento = fechaNacimiento;
+		this.FechaNacimiento = fechaNacimiento;
 	}
 
 	public Long getId() {
@@ -90,7 +90,7 @@ public class Usuario {
 	}
 
 	public void setFechaNacimiento(String fechaNacimiento) {
-		FechaNacimiento = fechaNacimiento;
+		this.FechaNacimiento = fechaNacimiento;
 	}
 	
 	

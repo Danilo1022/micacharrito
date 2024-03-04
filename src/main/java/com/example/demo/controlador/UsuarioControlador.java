@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +15,7 @@ import com.example.demo.repositorio.RepositorioUsuario;
 
 @RestController
 @RequestMapping("/ver/e1/")
+@CrossOrigin(origins = "http://localhost:62027/")
 
 
 public class UsuarioControlador {
@@ -20,13 +23,15 @@ public class UsuarioControlador {
 	@Autowired
 	private RepositorioUsuario repositorio;
 	
-	
-	@GetMapping("/guardar")
-	public List<Usuario> guardarUsuario(){
-		Usuario e = new Usuario(222L, "felipe","echeverri", 112233 , "34567" , "28/02/2000");
-		this.repositorio.save(e);
-		
+	@GetMapping("/usuarios")
+	public List<Usuario> verTodosUsuario(){
 		return this.repositorio.findAll();
+	}
+	
+	@PostMapping("/guardar")
+	public Usuario guardarUsuario(@RequestBody Usuario e){
+		
+		return this.repositorio.save(e);
 	}
 	
 	@GetMapping("/cancelar")
